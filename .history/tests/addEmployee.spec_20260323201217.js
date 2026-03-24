@@ -1,0 +1,29 @@
+import { test, expect } from '@playwright/test';
+import { faker } from '@faker-js/faker';
+
+test('Add Employee on Orange HRM', async ({ page }) => {
+
+    //navigate to the login page of Orange HRM
+ await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'); 
+ 
+ //you need 'await' before every locator action
+ await page.locator("input[name='username']").fill('Admin')
+ await page.locator("input[name='password']").fill('admin123')
+ await page.locator("button[type='submit']").click()
+ 
+ //verify login success 
+ await expect(page.locator('h6')).toHaveText('Dashboard')
+
+ //add a new employee
+ await page.locator('a').filter({ hasText: 'PIM' }).click();
+ await page.locator('a').filter({ hasText: 'Add Employee' }).click();
+ await page.locator('[name="firstName"]').fill(faker.person.firstName());
+ await page.locator('[name="lastName"]').fill(faker.person.lastName());
+ await page.locator("//button[@type='submit']").click()
+ 
+ //verify employee added successfully
+
+ await expect(page.locator("//h6[text()='Personal Details']")).toBeVisible({timeout: 15000})
+ await expect(page.locator("h6.oxd-text.oxd-text--h6.--strong")).toContainText(`${faker.person.firstName()} ${faker.person.lastName()}`)
+
+})
