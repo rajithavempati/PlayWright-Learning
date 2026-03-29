@@ -16,8 +16,8 @@ require('dotenv').config()
  */
 export default defineConfig({
 
-  globalTimeout: 60 * 60 * 1000,
-  timeout: 60000,
+  globaltimeout:60*
+  timeout : 60000,
   expect: {
     timeout: 20000
   },
@@ -53,17 +53,15 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    /**{
+    {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
     },
-    **/
 
-    /**{
+    {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
-    **/
 
     /* Test against mobile viewports. */
     // {

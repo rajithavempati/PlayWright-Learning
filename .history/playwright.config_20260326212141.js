@@ -16,8 +16,7 @@ require('dotenv').config()
  */
 export default defineConfig({
 
-  globalTimeout: 60 * 60 * 1000,
-  timeout: 60000,
+  timeout : 60000,
   expect: {
     timeout: 20000
   },
@@ -40,7 +39,7 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     //baseURL: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login',
     //baseURL: 'https://www.saucedemo.com/', or any other URL you want to test against andend point should bemention on the test file
-    //if base URL does not have parameeter then mention '/' in the test file(await page.goto('/')) to avoid error
+    //if base URL does not have parameeter then mention '/
     trace: 'on-first-retry',
     video: 'on',
     screenshot: 'on'
@@ -53,17 +52,15 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    /**{
+    {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
     },
-    **/
 
-    /**{
+    {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
-    **/
 
     /* Test against mobile viewports. */
     // {
