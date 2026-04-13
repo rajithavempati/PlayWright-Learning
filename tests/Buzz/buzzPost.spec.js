@@ -26,3 +26,5 @@ test('Verify User can post on Buzz newsfeed', async ({ page }) => {
   // Step 6: Verify the posted text appears at the top of the newsfeed
   await expect(page.getByText(randomText).first()).toBeVisible();
 });
+
+
