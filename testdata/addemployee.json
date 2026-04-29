@@ -2,5 +2,7 @@
     "employeeName": "John Doe",
     "employeeID": "12345",
     "department": "Engineering",
-    "email": "abc@pqr.com"
+    "email": "abc@pqr.com",
+    "firstname" : "Rajitha",
+    "lastname" : "V"
 }

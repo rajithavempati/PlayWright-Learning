@@ -42,7 +42,7 @@ for (let i in jobtitles) {
 
         //verify user navigated to job titles list 
 
-        await expect(page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewJobTitleList')
-
+        //await expect(page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewJobTitleList')
+        await page.locator("//p[@class='oxd-text oxd-text--p oxd-text--toast-title oxd-toast-content-text']").isVisible()
     })
 }

@@ -50,9 +50,5 @@ test('create scripts for Admin dropdown menu on Orange HRM', async ({ page }) =>
     await page.locator("//div[@class='oxd-grid-2 orangehrm-full-width-grid']//div//input[@class='oxd-input oxd-input--active']").fill(`status ${uniqueSeed}-${i}`)
      await page.locator("//button[normalize-space()='Save'][1]").click()
     
-
-
-
-
 }
 })
