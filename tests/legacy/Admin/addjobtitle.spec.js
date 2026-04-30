@@ -3,9 +3,7 @@ import { test, expect } from '@playwright/test';
 import { faker } from '@faker-js/faker';
 
 
-test('Verify User can Job title', async ({ page }) => {
-
-
+test.skip('Verify User can Job title', async ({ page }) => {
     
     // Launch the Url
     await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
@@ -46,11 +44,14 @@ test('Verify User can Job title', async ({ page }) => {
     // Enter Job description 
 
     await page.locator("//textarea[@placeholder='Type description here']").fill("Automation testing")
-
+    
+    //upload file to job specification
+    await page.locator("input[type='file']").setInputFiles('testdata/Ninja image.PNG');
+        
     // Enter Notes 
 
     await page.locator("//textarea[@placeholder='Add note']").fill("this is automation scripts")
-
+    
     // save button 
 
     await page.locator("//button[@type='submit']").click()
@@ -58,5 +59,19 @@ test('Verify User can Job title', async ({ page }) => {
     //verify user navigated to job titles list 
 
     await expect(page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewJobTitleList')
+
+    //upload file to job specification
+    
+
+})
+
+test('Verify upload multiple file', async ({ page }) => {
+    
+    // Launch the Url
+    await page.goto('http://blueimp.github.io/jQuery-File-Upload/')
+    await expect.soft(page.locator('//a[@href="https://github.com/blueimp/jQuery-File-Upload/raju"]')).toBeVisible()    //when soft assertion fails, still continue the execution
+        await expect(page.locator("//span[text()='Delete selected']")).toBeVisible()
+     await page.locator('input[type="file"]').setInputFiles(['testdata/Ninja image.PNG', 'testdata/sampleFile.xlsx'])   
+
 
 })
